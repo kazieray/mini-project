@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Countdown Timer</title>
+   <style>
+      * {
+         margin: 0;
+         padding: 0;
+         font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      }
+
+      body {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         height: 100vh;
+         background-color: #F7FEE7;
+      }
+
+      main {
+         background-color: white;
+         width: 85%;
+         padding: 24px;
+         border-radius: 24px;
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         align-items: center;
+         gap: 1rem;
+         box-shadow: 3px 4px 2px rgba(73, 125, 0, 0.25);
+      }
+   
+      h1 {
+         color: #497D00;
+      }
+
+      p.countdown-display {
+         font-size: 15px;
+         text-align: center;
+      }
+
+      .input-timer, .button-action {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         gap: 10px;
+      }
+
+      input {
+         width: 36px;
+         height: 20px;
+         padding: 8px;
+         font-size: 14px;
+         border-radius: 8px;
+         border: 3px solid #497D00;
+      }
+
+      button {
+         font-size: 14px;
+         padding: 12px 16px;
+         border: none;
+         color: white;
+         border-radius: 8px;
+         transition: all ease-in 200ms;
+         cursor: pointer;
+      }
+      
+      button:first-child {
+         background-color: #497D00;
+      }
+
+      button:last-child {
+         background-color: #7d4300;
+      }
+
+      button:hover {
+         opacity: 0.7;
+      }
+
+      .alert {
+         color: red;
+         font-size: 12px;
+         font-style: italic;
+      }
+
+      @media (width >= 48rem) { 
+         main {
+            width: 50%;
+            padding: 3.5rem;
+            gap: 2.5rem;
+         }
+
+         h1 {
+            font-size: 40px;
+         }
+
+         p.countdown-display {
+            font-size: 30px;
+         }
+
+         .alert {
+            font-size: 20px;
+         }
+
+         .input-timer {
+            gap: 20px;
+         }
+
+         input {
+            width: 65px;
+            height: 40px;
+            padding: 8px;
+            font-size: 24px;
+         }
+
+         button {
+            font-size: 20px;
+            padding: 16px 24px;
+         }
+      }
+   </style>
+</head>
+<body>
+
+   <main>
+      <h1>Countdown Timer</h1>
+
+      <p class="countdown-display">
+         <span class="days">0</span> Days
+         <span class="hours">0</span> Hours
+         <span class="minutes">0</span> Minutes
+         <span class="seconds">0</span> Seconds
+      </p>
+
+      <section class="input-timer">
+         <input type="number" placeholder="Hrs" min="0">
+         <input type="number" placeholder="Min" min="0">
+         <input type="number" placeholder="Sec" min="0">
+      </section>
+      
+      <section class="button-action">
+         <button type="button">Start Timer</button>
+         <button type="button">Reset</button>
+      </section>
+      <p class="alert"></p>
+   </main>
+
+   
+   <script src="script.js"></script>
+</body>
+</html>

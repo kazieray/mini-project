@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Color Picker</title>
+   <style>
+      * {
+         margin: 0;
+         padding: 0;
+         font-family: sans-serif;
+      }
+
+      body {
+         background-color: #F3F4F6;
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         align-items: center;
+         min-height: 100vh;
+      }
+
+      h1 {
+         text-align: center;
+         color: #1E2939;
+         font-size: 3rem;
+         margin-bottom: 10px;
+      }
+
+      main {
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         align-items: center;
+         gap: 1.25rem;
+         padding: 2rem;
+         width: 20rem;
+         border-radius: 24px;
+         box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.5);
+         background-color: white;
+      }
+
+      main p {
+         color: #525252;
+         font-size: 1.5rem;
+      }
+      
+      .hex-color {
+         text-transform: uppercase;
+      }
+
+      main input {
+         width: 15rem;
+         height: 4rem;
+         border: none;
+         outline-style: dotted;
+      }
+
+      @media (width >= 48rem) {
+         main {
+            padding: 3rem;
+            width: 35rem;
+         }
+
+         main p {
+            font-size: 2rem;
+         }
+
+         main input {
+            width: 30rem;
+            height: 10rem;
+         }
+      }
+   </style>
+</head>
+<body>
+   <main>
+      <h1>Color Picker</h1>
+      <p>Color Selected: <span class="hex-color">#000000</span></p>
+      <input type="color">
+   </main>
+
+   <script src="script.js"></script>
+</body>
+</html>
