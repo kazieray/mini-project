@@ -16,6 +16,7 @@ function reset() {
    inputSec.value = "";
    clearInterval(countdown);
    countdown = null;
+   document.querySelector("audio").load();
    updateUI(0, 0, 0, 0);
 }
 
@@ -31,7 +32,7 @@ function process() {
          document.querySelector(".alert").innerHTML = "";
       }, 2000);
    } else {
-      if(countdown != null) {
+      if(countdown) {
          clearInterval(countdown);
          countdown = null;
       }
@@ -39,24 +40,27 @@ function process() {
       totalSec = (numberHrs * 3600) + (numberMin * 60) + numberSec;
       
       countdown = setInterval(() => {
-         if(totalSec < 0) {
+         document.querySelector("audio").load();
+         days = Math.floor(totalSec / 86400);
+         sisa = totalSec % 86400;
+         
+         hours = Math.floor(sisa / 3600);
+         sisa = sisa % 3600;
+
+         minutes = Math.floor(sisa / 60);
+         sisa = sisa % 60;
+         
+         seconds = sisa;
+
+         updateUI(days, hours, minutes, seconds);
+
+         if(totalSec === 0) {
+            document.querySelector("audio").play();
             clearInterval(countdown);
             countdown = null;
-         } else {
-            days = Math.floor(totalSec / 86400);
-            sisa = totalSec % 86400;
-            
-            hours = Math.floor(sisa / 3600);
-            sisa = sisa % 3600;
-      
-            minutes = Math.floor(sisa / 60);
-            sisa = sisa % 60;
-            
-            seconds = sisa;
-      
-            totalSec--;
-            updateUI(days, hours, minutes, seconds);
          }
+
+         totalSec--;
       }, 1000)
    }
 }
